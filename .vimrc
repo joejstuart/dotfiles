@@ -1,8 +1,8 @@
 " Use the Solarized Dark theme
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-let g:solarized_termtrans=1
-
+ let g:solarized_termtrans=1
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -45,12 +45,12 @@ set number
 " Enable syntax highlighting
 syntax on
 " Highlight current line
-set cursorline
+"set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+"set lcs=tab:▸\ ,trail:·,nbsp:_
+" set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -82,6 +82,8 @@ if exists("&relativenumber")
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+" set filetype to unix
+set ff=unix
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -104,3 +106,8 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
