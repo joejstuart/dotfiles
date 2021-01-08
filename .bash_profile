@@ -48,3 +48,17 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# solarized ls
+alias ls='gls --color=auto'
+eval `gdircolors $HOME/repos/dircolors-solarized/dircolors.256dark`
+
+function firewall_off() {
+    sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 0
+}
+
+function venv() {
+    source ~/venvs/${1}/bin/activate
+}
+
+
